@@ -1,0 +1,67 @@
+.message-board-container {
+  padding-top: 40px;
+    width: 778px;
+    margin: 0 auto;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 两列，各占一半 */
+    align-items: center; /* 垂直居中对齐 */
+  }
+  .right{
+    text-align: right;
+  }
+
+  .message-form {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .input-field {
+    width: 45%;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .message-item {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .reply-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+
+  body,td,th {
+    /*文字大小*/
+    font-size: 12px;
+    /*文字颜色*/
+    color: #2E2E2E;
+    /*文字行距*/
+    line-height: 20px;
+  }
+  
+  a:link {
+    color: #2E2E2E;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+    color: #2E2E2E;
+  }
+  
+  a:hover {
+    color: #FF6600;
+  }
+  
+  .Blank {
+    padding-top:150px;
+  }

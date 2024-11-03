@@ -1,0 +1,106 @@
+
+<table  border="0" cellpadding="3" cellspacing="1" style="border-collapse: collapse;" width="778" bgcolor="#78B8F1" align="center">
+	<tbody><tr>
+		<td bgcolor="#FFFFFF">
+			<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
+				<tbody><tr>
+					<td height="25" style="padding-left:10px;">· 留言列表 ·</td>
+					<td align="right" style="padding-right:13px;"><a style="color:#FF0000;cursor:hand"  (click)="ly()">发布留言</a>&nbsp;&nbsp;<a href="#" style="color:black">管理员登录</a>
+					</td>
+				</tr>
+			</tbody></table>
+		</td>
+	</tr>
+</tbody></table>
+
+<table border="0" cellpadding="3" *ngIf="showAdd" cellspacing="1" style="border-collapse: collapse;" width="778" bgcolor="#78B8F1" align="center" id="Ly">
+	<tbody><tr>
+		<td bgcolor="#FFFFFF" style="padding-left:10px;">· 写留言 ·</td>
+	</tr>
+	<tr>
+		<td bgcolor="#FFFFFF">
+			<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
+				<form method="post" action="#" onsubmit="onSubmit()"></form>
+					<tbody><tr>
+						<td width="80" align="center">昵称：</td>
+						<td width="180"><input id="nickname" [(ngModel)]="newMessage.nickname" name="nickname" type="text"><font color="red"> *</font></td>
+						<td width="48" align="center">内容：</td>
+						<td rowspan="4"><textarea  [(ngModel)]="newMessage.content"  id="content" name="content" rows="8" cols="60"></textarea><font color="red"> *</font></td>
+					</tr>
+					<tr>
+						<td align="center">Q&nbsp; QQ：</td>
+						<td><input name="qq"  [(ngModel)]="newMessage.qq" id="qq" type="text"><font color="red"> *</font></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td align="center">邮箱：</td>
+						<td><input name="email" [(ngModel)]="newMessage.email"  id="email" type="text"><font color="red"> *</font></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="3" align="center"><input type="submit" (click)="addMessage()" value=" 添加留言 "></td>
+					</tr>
+			</tbody></table>
+		</td>
+	</tr>
+</tbody></table>
+
+
+
+<table border="0" cellpadding="3" cellspacing="1" style="border-collapse: collapse" width="778" bgcolor="#78B8F1" align="center">
+	<tbody>
+    <tr>
+		<td bgcolor="#FFFFFF">
+			<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
+			
+				<tbody>
+          
+        <tr *ngFor="let data of dataSource">
+					<td>
+						<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
+							<tbody><tr>
+								<td width="33" align="center"><font color="#006699" face="wingdings">1</font></td>
+								<td><b>{{data.nickname}}</b>在<font color="#006699">{{data.createdAt}}</font>的留言： 
+								</td>
+								<td width="40">
+									<a style="cursor:hand" title="270902697@qq.com"><font color="#006699" face="wingdings">+</font></a>
+									<a style="cursor:hand" title="270902697"><font color="#006699" face="wingdings">''</font></a>
+								</td>
+							</tr>
+						</tbody></table>
+						<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
+							<tbody><tr onmouseover="javascript:this.bgColor=&#39;#EFEFEF&#39;;" onmouseout="javascript:this.bgColor=&#39;#FFFFFF&#39;;" bgcolor="#FFFFFF">
+								<td width="33"></td>
+								<td style="width:730; word-break:break-all; word-wrap:break-word;">
+								{{data.content}}
+                <span *ngIf="data.isReplied" style="color:#006699">
+                  <br><b>回复：</b><br>{{data.replyContent}}
+                </span>
+
+								</td>
+							</tr>
+						</tbody></table>
+						<hr noshade="" size="1" color="#78B8F1">
+					</td>
+				</tr>
+			</tbody></table>
+		</td>
+	</tr>
+</tbody></table>
+<table border="0" cellpadding="3" style="border-collapse: collapse;padding-bottom: 40px;" width="776" align="center">
+	<form method="get"></form>
+	<tbody>
+		<tr>
+			<td align="center" bgcolor="#FFFFFF"> 
+				<a (click)="top()">首页</a> &nbsp;&nbsp;
+				<a (click)="up()">上一页</a> &nbsp;&nbsp;
+				<a (click)="next()">下一页</a> &nbsp;&nbsp;
+				<a (click)="last()">尾页</a> &nbsp;&nbsp; 
+				页次：{{currentPage}}/{{pages}}&nbsp;页 共有&nbsp;{{total}}&nbsp;条留言   转到&nbsp;
+				<input tyep="text"  [(ngModel)]="nPage" name="page" maxlength="5" value="1" style="font-size: 12px;border: 1px solid #CCCCCC;width:23px;">&nbsp;页 
+				<input type="submit" (click)="goTo()" style="font-size: 9pt" value="GO">
+			</td>
+	    </tr>
+	</tbody>
+</table>
+
